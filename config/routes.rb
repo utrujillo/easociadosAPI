@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/create'
   namespace :api do
     namespace :v1 do
       resources :categories
     end
   end
 
+  post "login", to: "auth#login"
   resources :users, only: [:create]
 end
