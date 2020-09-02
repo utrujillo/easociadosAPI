@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :categories
       resources :jobs
+      resources :job_images do
+        post 'filter', on: :collection
+      end
       resources :sessions, only: [:create, :destroy]
     end
   end

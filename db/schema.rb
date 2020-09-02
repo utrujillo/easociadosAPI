@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_155428) do
+ActiveRecord::Schema.define(version: 2020_09_02_182338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_09_01_155428) do
     t.string "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "job_images", force: :cascade do |t|
+    t.bigint "job_id"
+    t.string "imagen"
+    t.string "titulo"
+    t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_images_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -46,5 +56,6 @@ ActiveRecord::Schema.define(version: 2020_09_01_155428) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "job_images", "jobs"
   add_foreign_key "jobs", "categories"
 end

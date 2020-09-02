@@ -11,6 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt', '~> 2.2'
 gem 'devise'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'carrierwave', '~> 2.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
