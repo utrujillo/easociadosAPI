@@ -11,7 +11,7 @@ module Api
             Rails.application.secrets.secret_key_base,
             'HS256'
           ) 
-          render json: { user: UserSerializer.new(user), token: jwt }
+          render json: { user: UserSerializer.new(user), access_token: jwt }, status: :created
           # render :create, locals: { token: jwt }, status: :created
         else
           head(:unauthorized)
